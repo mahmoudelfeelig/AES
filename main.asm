@@ -9,15 +9,15 @@ ORG 100H
 buffer1 DB 0FFh, 010h
 
 cipherKey DB 256 dup(00)          
-cipherKeyPrompt DB "Enter a 16 character string (cipher key): $"   
+cipherKeyPrompt DB "Enter a 16 character cipher key: $"   
 
 buffer DB 11h, 10h                                                                                      
                                                                                       
 ;this is the roundKey, which should be taken as input at the start of the code
 roundKey DB 16 dup(00)
-roundKeyPrompt DB "   Enter a 16 character string (round key): $"  
+roundKeyPrompt DB "Enter a 16 character round key: $"  
 
-cipherKeyOutput DB "     The encrypted text is:   $"
+cipherKeyOutput DB "The encrypted text is:   $"
 
 
 
@@ -177,7 +177,7 @@ output ENDP
 subBytes proc          
     
     ; Takes:
-    ; "DI": Determines if it’s called by keySchedule (DI=16) or regular use (DI=0)
+    ; "DI": Determines if itï¿½s called by keySchedule (DI=16) or regular use (DI=0)
     ; "SI": Tracks the index of the cipherKey or roundKey
     ; Uses:
     ; "AX": Temporary storage for current byte index
